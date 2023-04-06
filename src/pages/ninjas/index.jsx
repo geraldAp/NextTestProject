@@ -1,7 +1,5 @@
 import Link from "next/link";
-import styles from '../../styles/Ninja.module.css'
-
-
+import styles from "../../styles/Ninja.module.css";
 
 // special function for fetching data in next get static props
 export const getStaticProps = async () => {
@@ -13,15 +11,17 @@ export const getStaticProps = async () => {
   };
 };
 
-const Test = ({users}) => {
+const Test = ({ users }) => {
   return (
     <div>
       <h1>All Users</h1>
-      {users.map(user =>(
-       <div >
-        <Link key={user.id} href={`/ninjas/${user.id}`} className={styles.single }>{user.name}</Link>
-       </div>
-
+      {users.map((user) => (
+        // Add the key prop to the outermost element in the loop
+        <div key={user.id}>
+          <Link href={`/ninjas/${user.id}`} className={styles.single}>
+            {user.name}
+          </Link>
+        </div>
       ))}
     </div>
   );

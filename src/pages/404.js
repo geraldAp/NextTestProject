@@ -11,7 +11,7 @@ const NotFound = () => {
          //router.go()
          router.push('/')// redirects them to the homePage
     },3000);
-  }, []);
+  }, [router]);
 
   return (
     <div className="not-found">
